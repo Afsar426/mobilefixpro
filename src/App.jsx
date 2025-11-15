@@ -11,38 +11,28 @@ function App() {
   const { theme } = useTheme()
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/mobilefixpro">   {/* <-- IMPORTANT FIX */}
       <div className={`min-h-screen ${theme === 'dark' ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
         <Navbar />
         <AnimatePresence mode="wait">
           <Routes>
             <Route path="/" element={
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                 <Home />
               </motion.div>
-            } />
+            }/>
+            
             <Route path="/track" element={
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                 <Track />
               </motion.div>
-            } />
+            }/>
+            
             <Route path="/login" element={
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                 <Login />
               </motion.div>
-            } />
+            }/>
           </Routes>
         </AnimatePresence>
         <Footer />
